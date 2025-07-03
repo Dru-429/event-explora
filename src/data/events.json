@@ -1,0 +1,82 @@
+[
+  {
+    "id": "api-conference",
+    "name": "API Conference 2025",
+    "date": "2025-08-12",
+    "location": "Bangalore",
+    "description": "A deep dive into modern API design and security practices.",
+    "image": "/events/api.png"
+  },
+  {
+    "id": "fusion-forum",
+    "name": "Fusion Forum",
+    "date": "2025-07-25",
+    "location": "Delhi",
+    "description": "A meetup for developers to discuss the future of tech integration.",
+    "image": "/events/fusionform.png"
+  },
+  {
+    "id": "web3-summit",
+    "name": "Web3 Summit",
+    "date": "2025-09-10",
+    "location": "Hyderabad",
+    "description": "Explore the next-gen web with blockchain and decentralized technologies.",
+    "image": "/events/web3.png"
+  },
+  {
+    "id": "ssoc-retreat",
+    "name": "SSOC Developer Retreat",
+    "date": "2025-07-20",
+    "location": "Goa",
+    "description": "A relaxing developer meetup focused on open source contributions.",
+    "image": "/events/SSOC.png"
+  },
+  {
+    "id": "startup-meetup",
+    "name": "Startup Meetup",
+    "date": "2025-08-05",
+    "location": "Mumbai",
+    "description": "Where founders and developers connect to innovate together.",
+    "image": "/events/meetup.png"
+  },
+  {
+    "id": "ai-bootcamp",
+    "name": "AI Bootcamp",
+    "date": "2025-09-01",
+    "location": "Pune",
+    "description": "A hands-on workshop series on AI tools and frameworks.",
+    "image": "/events/ai-bootcamp.png"
+  },
+  {
+    "id": "cloud-connect",
+    "name": "Cloud Connect",
+    "date": "2025-08-18",
+    "location": "Chennai",
+    "description": "Conference on cloud-native applications and serverless architecture.",
+    "image": "/events/cloud-connect.png"
+  },
+  {
+    "id": "design-huddle",
+    "name": "Design Huddle",
+    "date": "2025-07-30",
+    "location": "Bangalore",
+    "description": "UI/UX designers come together to share tips and tools.",
+    "image": "/events/design-huddle.png"
+  },
+  {
+    "id": "nextjs-workshop",
+    "name": "Next.js Workshop",
+    "date": "2025-08-22",
+    "location": "Kolkata",
+    "description": "A practical workshop on building scalable apps with Next.js.",
+    "image": "/events/nextjs-workshop.png"
+  },
+  {
+    "id": "ml-hackathon",
+    "name": "ML Hackathon",
+    "date": "2025-09-15",
+    "location": "Delhi",
+    "description": "A 24-hour machine learning challenge for enthusiasts.",
+    "image": "/events/ml-hackathon.png"
+  }
+]
