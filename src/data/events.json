@@ -3,80 +3,80 @@
     "id": "api-conference",
     "name": "API Conference 2025",
     "date": "2025-08-12",
-    "location": "Bangalore",
-    "description": "A deep dive into modern API design and security practices.",
+    "location": "Microsoft Office, Noida",
+    "description": "Join industry experts for an in-depth exploration of cutting-edge API design, scalability, and security best practices.",
     "image": "/events/api.png"
   },
   {
     "id": "fusion-forum",
     "name": "Fusion Forum",
     "date": "2025-07-25",
-    "location": "Delhi",
-    "description": "A meetup for developers to discuss the future of tech integration.",
+    "location": "Google Campus, Bangalore",
+    "description": "A dynamic forum where developers, designers, and tech leaders discuss the future of integrated digital solutions.",
     "image": "/events/fusionform.png"
   },
   {
     "id": "web3-summit",
     "name": "Web3 Summit",
     "date": "2025-09-10",
-    "location": "Hyderabad",
-    "description": "Explore the next-gen web with blockchain and decentralized technologies.",
+    "location": "Microsoft Office, Hyderabad",
+    "description": "Explore the innovations in Web3 technology, blockchain infrastructure, and decentralized applications.",
     "image": "/events/web3.png"
   },
   {
     "id": "ssoc-retreat",
     "name": "SSOC Developer Retreat",
     "date": "2025-07-20",
-    "location": "Goa",
-    "description": "A relaxing developer meetup focused on open source contributions.",
+    "location": "Goa Beach Resort",
+    "description": "An inspiring retreat focused on open-source collaboration, community building, and tech talks by leading contributors.",
     "image": "/events/SSOC.png"
   },
   {
     "id": "startup-meetup",
     "name": "Startup Meetup",
     "date": "2025-08-05",
-    "location": "Mumbai",
-    "description": "Where founders and developers connect to innovate together.",
+    "location": "WeWork, Mumbai",
+    "description": "A vibrant networking event where startup founders and developers connect, pitch ideas, and collaborate on innovations.",
     "image": "/events/meetup.png"
   },
   {
     "id": "ai-bootcamp",
     "name": "AI Bootcamp",
     "date": "2025-09-01",
-    "location": "Pune",
-    "description": "A hands-on workshop series on AI tools and frameworks.",
-    "image": "/events/ai-bootcamp.png"
+    "location": "Google Office, Gurgaon",
+    "description": "An immersive bootcamp designed to sharpen your AI and machine learning skills through hands-on projects and mentoring.",
+    "image": "/events/api.png"
   },
   {
     "id": "cloud-connect",
     "name": "Cloud Connect",
     "date": "2025-08-18",
-    "location": "Chennai",
-    "description": "Conference on cloud-native applications and serverless architecture.",
-    "image": "/events/cloud-connect.png"
+    "location": "AWS Office, Chennai",
+    "description": "A must-attend event for cloud professionals, featuring workshops on serverless architecture, multi-cloud strategies, and DevOps.",
+    "image": "/events/SSOC.png"
   },
   {
     "id": "design-huddle",
     "name": "Design Huddle",
     "date": "2025-07-30",
-    "location": "Bangalore",
-    "description": "UI/UX designers come together to share tips and tools.",
-    "image": "/events/design-huddle.png"
+    "location": "Adobe Office, Bangalore",
+    "description": "A creative gathering for UI/UX designers to share workflows, tools, and trends shaping the future of digital design.",
+    "image": "/events/api.png"
   },
   {
     "id": "nextjs-workshop",
     "name": "Next.js Workshop",
     "date": "2025-08-22",
-    "location": "Kolkata",
-    "description": "A practical workshop on building scalable apps with Next.js.",
-    "image": "/events/nextjs-workshop.png"
+    "location": "Microsoft Reactor, Kolkata",
+    "description": "A hands-on workshop that guides you through building robust, scalable applications with Next.js and modern frontend tools.",
+    "image": "/events/meetup.png"
   },
   {
     "id": "ml-hackathon",
     "name": "ML Hackathon",
     "date": "2025-09-15",
-    "location": "Delhi",
-    "description": "A 24-hour machine learning challenge for enthusiasts.",
-    "image": "/events/ml-hackathon.png"
+    "location": "Virtual",
+    "description": "A 24-hour online hackathon where ML enthusiasts tackle real-world challenges and showcase innovative solutions.",
+    "image": "/events/fusionform.png"
   }
 ]
