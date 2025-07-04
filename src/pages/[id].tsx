@@ -16,6 +16,9 @@ export default function EventPage({ event }: EventPageProps) {
       <Head>
         <title>{event.name} | Events Explorer</title>
         <meta name="description" content={event.description} />
+        <meta name="author" content="Events Explorer" />
+        <meta name="keywords" content={`events, ${event.name}, ${event.location}, ${new Date(event.date).getFullYear()}`} />
+        <meta property="og:url" content={`https://youreventsite.com/${event.id}`} />
       </Head>
 
       <Navbar />

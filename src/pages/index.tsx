@@ -5,6 +5,8 @@ import events from "../data/events.json"
 import EventCard from "@/components/EventCard"
 import CustomDropdown from "@/components/CustomDropdown"
 import SearchLens from "@/icons/SearchLens"
+import Navbar from "@/components/Navbar"
+import Footer from "@/components/Footer"
 
 type SortOption = "date-asc" | "date-desc" | "name-asc" | "name-desc"
 
@@ -75,9 +77,12 @@ export default function Homepage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <nav>  
+        <Navbar />
+      </nav>
       {/* Hero Header */}
       <header
-        className="flex flex-col justify-center items-center text-center"
+        className="flex flex-col justify-center items-center text-center w-full"
         style={{
           backgroundColor: "#FAF0CA",
           backgroundImage: `url(https://i.pinimg.com/736x/66/82/34/668234e4977e1f5b3ee7c17bbee19cf5.jpg)`,
@@ -182,7 +187,7 @@ export default function Homepage() {
       </section>
 
       {/* Main Events Section */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-8 my-10">
         {/* Results Header */}
         <section className="mb-6">
           <h2 className="text-2xl font-bold text-foreground">
@@ -230,6 +235,10 @@ export default function Homepage() {
           </section>
         )}
       </main>
+
+      <footer>
+        <Footer />
+      </footer>
     </div>
   )
 }

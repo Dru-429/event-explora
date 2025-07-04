@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function Navbar() {
   return (
-    <nav className="bg-white border-b-2 border-primary text-foreground py-4 px-6 flex justify-between items-center sticky top-0 z-50 shadow-sm">
+    <nav className="bg-background/80 border-b-2 border-primary text-foreground py-4 px-6 flex justify-between items-center sticky top-0 z-50 shadow-sm">
       {/* Logo/Brand */}
       <Link
         href="/"
@@ -40,7 +40,7 @@ export default function Navbar() {
 
         {/* GitHub Link */}
         <a
-          href="https://github.com/event-explora"
+          href="https://github.com/dru-429/event-explora"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub Repository"
