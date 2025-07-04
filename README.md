@@ -1,40 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Events Explorer — Next.js Assessment
 
-## Getting Started
+A dynamic event listing app built using **Next.js (pages router)**, **TypeScript**, and **Tailwind CSS**.  
+The app allows users to:
+- Search events by name, location, or description
+- Filter by location
+- Sort by date
+- View event details via dynamic routing with SEO meta tags  
+- Explore a clean, responsive UI following the provided theme
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📑 Table of Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Section | Location |
+|----------|----------|
+| [Approach](#approach) | Below |
+| [Folder Structure](#folder-structure) | Below |
+| [How to Run](#how-to-run) | Below |
+| [Optional Improvements](#optional-improvements) | Below |
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 🚀 Approach
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+- Built with **Next.js (Pages Router)** for easy routing and static generation.
+- **TypeScript** for type safety, with clear interfaces for event data.
+- **Tailwind CSS** using custom theme colors and CSS variables to match the design palette.
+- Dynamic routes (`[id].tsx`) render event details with dynamic meta tags for SEO.
+- Navbar + Footer extracted as reusable components for clean structure.
+- Sticky search + filter bar for better UX.
+- Fully responsive design tested on mobile and desktop.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🗂 Folder Structure
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
