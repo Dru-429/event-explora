@@ -1,51 +1,58 @@
-"use client"
+"use client";
 
-import type React from "react"
-
-import { useState, useRef, useEffect } from "react"
+import type React from "react";
+import { useState, useRef, useEffect } from "react";
 
 interface DropdownOption {
-  value: string
-  label: string
+  value: string;
+  label: string;
 }
 
 interface CustomDropdownProps {
-  options: DropdownOption[]
-  value: string
-  onChange: (value: string) => void
-  placeholder: string
-  icon?: React.ReactNode
+  options: DropdownOption[];
+  value: string;
+  onChange: (value: string) => void;
+  placeholder: string;
+  icon?: React.ReactNode;
 }
 
-export default function CustomDropdown({ options, value, onChange, placeholder, icon }: CustomDropdownProps) {
-  const [isOpen, setIsOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
+export default function CustomDropdown({
+  options,
+  value,
+  onChange,
+  placeholder,
+  icon,
+}: CustomDropdownProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
+        setIsOpen(false);
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
-  const selectedOption = options.find((option) => option.value === value)
+  const selectedOption = options.find((option) => option.value === value);
 
   return (
-    <div className="dropdown relative" ref={dropdownRef}>
+    <div ref={dropdownRef} className="relative inline-block w-full">
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between px-4 py-3 bg-white border border-input rounded-lg text-left focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+        className="w-full flex items-center justify-between px-4 py-3 bg-white border border-input rounded-lg text-left focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition"
       >
         <div className="flex items-center gap-2">
           {icon}
-          <span className="text-foreground">{selectedOption ? selectedOption.label : placeholder}</span>
+          <span className="text-foreground">
+            {selectedOption ? selectedOption.label : placeholder}
+          </span>
         </div>
         <svg
           className={`w-4 h-4 text-muted-foreground transition-transform ${isOpen ? "rotate-180" : ""}`}
@@ -58,17 +65,19 @@ export default function CustomDropdown({ options, value, onChange, placeholder, 
       </button>
 
       {isOpen && (
-        <div className="dropdown-content absolute top-full left-0 right-0 mt-1 bg-white border border-input rounded-lg shadow-lg z-10 max-h-48 overflow-y-auto">
+        <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-input rounded-lg shadow-lg z-10 max-h-48 overflow-y-auto">
           {options.map((option) => (
             <button
               key={option.value}
               type="button"
               onClick={() => {
-                onChange(option.value)
-                setIsOpen(false)
+                onChange(option.value);
+                setIsOpen(false);
               }}
-              className={`dropdown-item w-full text-left px-4 py-3 hover:bg-muted transition-colors ${
-                value === option.value ? "bg-primary text-primary-foreground" : "text-foreground"
+              className={`block w-full text-left px-4 py-3 cursor-pointer transition-colors ${
+                value === option.value
+                  ? "bg-primary text-primary-foreground"
+                  : "text-foreground hover:bg-muted"
               }`}
             >
               {option.label}
@@ -77,5 +86,5 @@ export default function CustomDropdown({ options, value, onChange, placeholder, 
         </div>
       )}
     </div>
-  )
+  );
 }
