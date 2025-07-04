@@ -4,6 +4,8 @@ import { useState, useMemo } from "react"
 import events from "../data/events.json"
 import EventCard from "@/components/EventCard"
 import CustomDropdown from "@/components/CustomDropdown"
+import SearchLens from "@/icons/SearchLens"
+import Arrow from "@/icons/Arrow"
 
 type SortOption = "date-asc" | "date-desc" | "name-asc" | "name-desc"
 
@@ -75,35 +77,34 @@ export default function Homepage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Header */}
-      <header className="bg-primary text-black bg-url('https://i.pinimg.com/736x/6b/2c/53/6b2c530fccc9f949d6bba175bd369d70.jpg') bg-cover bg-center bg-no-repeat bg-fi">
-        <div className="container mx-auto px-4 py-16 text-center">
+      <header
+        className="flex flex-col justify-center items-center text-center"
+        style={{
+          backgroundColor: "#FAF0CA",
+          backgroundImage: `url(https://i.pinimg.com/736x/66/82/34/668234e4977e1f5b3ee7c17bbee19cf5.jpg)`,
+          backgroundSize: "contain",
+          backgroundAttachment: "fixed",
+        }}      >
+        <div className="container mx-0 py-16 text-center bg-primary/20">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">Event Explora</h1>
-          <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl font-semibold max-w-full mx-auto">
             Discover and explore amazing events happening around you
           </p>
         </div>
 
+      </header>
 
 
-        {/* Search and Filter Section */}
-        <section className=" border-b border-border">
-          <div className="container mx-auto px-4 py-8">
-            <div className="max-w-4xl mx-auto space-y-4">
-              {/* Search Bar */}
-              <div className="relative">
-                <svg
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
+      {/* Search and Filter Section */}
+      <section className="border-b border-border sticky top-0 bg-background z-50">
+        <div className="container mx-auto px-4 py-4">
+          <div className="max-w-4xl mx-auto space-y-2 relative">
+
+            {/* Search + Filters Row */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 gap-2">
+              {/* Search Input */}
+              <div className="relative flex-1">
+                <SearchLens />
                 <input
                   type="text"
                   placeholder="Search events by name, location, or description..."
@@ -113,97 +114,58 @@ export default function Homepage() {
                 />
               </div>
 
-              {/* Filters Row */}
-              <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-                <div className="flex flex-col sm:flex-row gap-4 flex-1">
-                  {/* Location Filter */}
-                  <div className="min-w-[200px]">
-                    <CustomDropdown
-                      options={locationOptions}
-                      value={selectedLocation}
-                      onChange={setSelectedLocation}
-                      placeholder="Filter by location"
-                      icon={
-                        <svg
-                          className="h-4 w-4 text-muted-foreground"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                          />
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                          />
-                        </svg>
-                      }
-                    />
-                  </div>
-
-                  {/* Sort Options */}
-                  <div className="min-w-[180px]">
-                    <CustomDropdown
-                      options={sortOptions}
-                      value={sortBy}
-                      onChange={(value: string) => setSortBy(value as SortOption)}
-                      placeholder="Sort by"
-                      icon={
-                        <svg
-                          className="h-4 w-4 text-muted-foreground"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                          />
-                        </svg>
-                      }
-                    />
-                  </div>
-                </div>
-
-                {/* Clear Filters Button */}
-                {(searchQuery || selectedLocation !== "all" || sortBy !== "date-asc") && (
-                  <button
-                    onClick={clearFilters}
-                    className="px-4 py-3 border border-input rounded-lg hover:bg-muted bg-transparent transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
-                  >
-                    Clear Filters
-                  </button>
-                )}
+              {/* Location Filter */}
+              <div className="min-w-[180px]">
+                <CustomDropdown
+                  options={locationOptions}
+                  value={selectedLocation}
+                  onChange={setSelectedLocation}
+                  placeholder="Filter by location"
+                  icon={<Arrow />}
+                />
               </div>
 
-              {/* Active Filters Display */}
-              {(searchQuery || selectedLocation !== "all") && (
-                <div className="flex flex-wrap gap-2 text-sm">
-                  <span className="text-muted-foreground">Active filters:</span>
-                  {searchQuery && (
-                    <span className="bg-primary/10 text-primary px-2 py-1 rounded-md">Search:`{searchQuery}`</span>
-                  )}
-                  {selectedLocation !== "all" && (
-                    <span className="bg-primary/10 text-primary px-2 py-1 rounded-md">Location: {selectedLocation}</span>
-                  )}
-                </div>
+              {/* Sort Filter */}
+              <div className="min-w-[160px]">
+                <CustomDropdown
+                  options={sortOptions}
+                  value={sortBy}
+                  onChange={(value: string) => setSortBy(value as SortOption)}
+                  placeholder="Sort by"
+                  icon={<Arrow />}
+                />
+              </div>
+
+              {/* Clear Filters */}
+              {(searchQuery || selectedLocation !== "all" || sortBy !== "date-asc") && (
+                <button
+                  onClick={clearFilters}
+                  className="px-4 py-3 border border-input rounded-lg hover:bg-muted bg-transparent transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+                >
+                  Clear Filters
+                </button>
               )}
             </div>
-          </div>
-        </section>
 
-      </header>
+            {/* Active Filters Display */}
+            {(searchQuery || selectedLocation !== "all") && (
+              <div className="flex flex-wrap gap-2 text-sm">
+                <span className="text-muted-foreground">Active filters:</span>
+                {searchQuery && (
+                  <span className="bg-primary/10 text-primary px-2 py-1 rounded-md">Search: `{searchQuery}`</span>
+                )}
+                {selectedLocation !== "all" && (
+                  <span className="bg-primary/10 text-primary px-2 py-1 rounded-md">Location: {selectedLocation}</span>
+                )}
+              </div>
+            )}
+
+          </div>
+        </div>
+      </section>
 
       {/* Main Events Section */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto md:my-20 px-4 py-8">
         {/* Results Header */}
         <section className="mb-6">
           <h2 className="text-2xl font-bold text-foreground">
