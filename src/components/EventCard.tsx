@@ -1,5 +1,6 @@
 "use client"
 
+import Mapper from "@/icons/Mapper"
 import type { Event } from "@/types/event"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
@@ -25,7 +26,7 @@ function formatDate(dateString: string): string {
   })
 }
 
-function truncateDescription(description: string, maxLength = 120): string {
+function truncateDescription(description: string, maxLength = 80): string {
   if (description.length <= maxLength) return description
   return description.substring(0, maxLength).trim() + "..."
 }
@@ -38,46 +39,53 @@ export default function EventCard({ event }: EventCardProps) {
     router.push(`/${slug}`)
   }
 
+
   return (
-    <article className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-border hover:border-primary/20">
-      <div className="relative">
+    <article className="bg-background rounded-2xl p-6 border-4 border-secondary hover:border-primary transition-all duration-300 shadow-lg hover:shadow-xl">
+      {/* Header with Date*/}
+      <div className="w-fit flex justify-between items-center mb-4 border-primary/90 border-[1px] rounded-2xl px-3 py-1 bg-primary/80 text-primary-foreground">
+        <time className="font-medium text-sm">{formatDate(event.date)}</time>
+      </div>
+
+      {/* Event Details */}
+      <div className="mb-4">
+        <p className="text-muted-foreground text-sm mb-1 flex items-center gap-2">
+          <Mapper />
+          {event.location}
+        </p>
+        <h3 className="text-foreground font-bold text-xl mb-3 leading-tight tracking-tighter">{event.name}</h3>
+        <p className="text-foreground/70 text-sm leading-relaxed">{truncateDescription(event.description)}</p>
+      </div>
+
+      {/* Event Image */}
+      <div className="mb-4 rounded-xl overflow-hidden">
         <Image
           src={event.image || "/placeholder.svg"}
           alt={event.name}
           width={400}
           height={200}
-          className="w-full h-48 object-cover"
+          className="w-full h-40 object-cover bg-background/50 hover:scale-105 transition-transform duration-300"
           onError={(e) => {
             const target = e.target as HTMLImageElement
             target.src = "/placeholder.svg?height=200&width=400"
           }}
         />
-        <div className="absolute top-4 left-4">
-          <time className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium shadow-md">
-            {formatDate(event.date).replace(/,.*/, "").replace(/\d{4}/, "").trim()} {new Date(event.date).getFullYear()}
-          </time>
-        </div>
       </div>
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-foreground mb-2 line-clamp-2">{event.name}</h3>
-        <p className="text-muted-foreground mb-2 font-medium flex items-center gap-1">
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-            />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-          {event.location}
-        </p>
-        <p className="text-foreground/80 mb-4 text-sm leading-relaxed">{truncateDescription(event.description)}</p>
+
+      <div className="flex justify-between items-center">
         <button
           onClick={handleExplore}
-          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-4 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          className="
+    bg-foreground text-background 
+    px-6 py-2 rounded-full font-medium text-sm 
+    transition-all duration-200 ease-in-out
+    hover:bg-primary hover:text-primary-foreground
+    focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
+    active:scale-95
+    shadow-sm hover:shadow-md
+  "
         >
-          Explore →
+          Explore
         </button>
       </div>
     </article>

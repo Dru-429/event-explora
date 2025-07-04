@@ -4,8 +4,8 @@ import { useState, useMemo } from "react"
 import events from "../data/events.json"
 import EventCard from "@/components/EventCard"
 import CustomDropdown from "@/components/CustomDropdown"
-import SearchLens from "@/icons/SearchLens"
 import Arrow from "@/icons/Arrow"
+import SearchLens from "@/icons/SearchLens"
 
 type SortOption = "date-asc" | "date-desc" | "name-asc" | "name-desc"
 
@@ -91,68 +91,82 @@ export default function Homepage() {
             Discover and explore amazing events happening around you
           </p>
         </div>
-
       </header>
 
-
       {/* Search and Filter Section */}
-      <section className="border-b border-border sticky top-0 bg-background z-50">
+      <section className="bg-white border-b border-border sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
-          <div className="max-w-4xl mx-auto space-y-2 relative">
+          <div className="flex flex-col gap-3">
 
-            {/* Search + Filters Row */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 gap-2">
-              {/* Search Input */}
-              <div className="relative flex-1">
-                <SearchLens />
-                <input
-                  type="text"
-                  placeholder="Search events by name, location, or description..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 text-base bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
-                />
+            {/* Top Row: Search + Filters */}
+            <div className="flex flex-col md:flex-row md:items-center gap-4">
+
+              {/* Search Bar */}
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  // handle submit logic
+                }}
+                className="flex-1"
+              >
+                <div className="relative flex items-center bg-white border-2 border-foreground rounded-full overflow-hidden focus-within:ring-2 focus-within:ring-primary focus-within:border-primary transition-all">
+                  <SearchLens />
+                  <input
+                    type="text"
+                    placeholder="Search events..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onKeyDown={(e) => e.key === "Escape" && setSearchQuery("")}
+                    className="flex-1 pl-12 pr-4 py-2 text-base bg-transparent border-none outline-none placeholder:text-muted-foreground"
+                  />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery("")}
+                      className="mr-2 p-2 bg-foreground text-background rounded-full hover:bg-foreground/80 transition-colors"
+                      aria-label="Clear search"
+                    >
+                      <Arrow />
+                    </button>
+                  )}
+                  <button
+                    type="submit"
+                    className="mr-2 p-2 bg-foreground text-background rounded-full hover:bg-foreground/80 transition-colors"
+                    aria-label="Search"
+                  >
+                    <Arrow />
+                  </button>
+                </div>
+              </form>
+
+              {/* Filters */}
+              <div className="flex gap-4 flex-wrap md:flex-nowrap">
+                <div className="min-w-[200px]">
+                  <CustomDropdown
+                    options={locationOptions}
+                    value={selectedLocation}
+                    onChange={setSelectedLocation}
+                    placeholder="Filter by location"
+                  />
+                </div>
+                <div className="min-w-[180px]">
+                  <CustomDropdown
+                    options={sortOptions}
+                    value={sortBy}
+                    onChange={(value: string) => setSortBy(value as SortOption)}
+                    placeholder="Sort by"
+                  />
+                </div>
               </div>
 
-              {/* Location Filter */}
-              <div className="min-w-[180px]">
-                <CustomDropdown
-                  options={locationOptions}
-                  value={selectedLocation}
-                  onChange={setSelectedLocation}
-                  placeholder="Filter by location"
-                  icon={<Arrow />}
-                />
-              </div>
-
-              {/* Sort Filter */}
-              <div className="min-w-[160px]">
-                <CustomDropdown
-                  options={sortOptions}
-                  value={sortBy}
-                  onChange={(value: string) => setSortBy(value as SortOption)}
-                  placeholder="Sort by"
-                  icon={<Arrow />}
-                />
-              </div>
-
-              {/* Clear Filters */}
-              {(searchQuery || selectedLocation !== "all" || sortBy !== "date-asc") && (
-                <button
-                  onClick={clearFilters}
-                  className="px-4 py-3 border border-input rounded-lg hover:bg-muted bg-transparent transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
-                >
-                  Clear Filters
-                </button>
-              )}
             </div>
 
-            {/* Active Filters Display */}
+            {/* Active Filters Row */}
             {(searchQuery || selectedLocation !== "all") && (
               <div className="flex flex-wrap gap-2 text-sm">
                 <span className="text-muted-foreground">Active filters:</span>
                 {searchQuery && (
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded-md">Search: `{searchQuery}`</span>
+                  <span className="bg-primary/10 text-primary px-2 py-1 rounded-md">Search:`{searchQuery}`</span>
                 )}
                 {selectedLocation !== "all" && (
                   <span className="bg-primary/10 text-primary px-2 py-1 rounded-md">Location: {selectedLocation}</span>
@@ -165,7 +179,7 @@ export default function Homepage() {
       </section>
 
       {/* Main Events Section */}
-      <main className="container mx-auto md:my-20 px-4 py-8">
+      <main className="container mx-auto px-4 py-8">
         {/* Results Header */}
         <section className="mb-6">
           <h2 className="text-2xl font-bold text-foreground">
@@ -199,7 +213,7 @@ export default function Homepage() {
               </p>
               <button
                 onClick={clearFilters}
-                className="px-4 py-2 border border-input rounded-lg hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+                className="px-4 py-2 cursor-pointer border border-input rounded-lg hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 Clear All Filters
               </button>
