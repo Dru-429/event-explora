@@ -1,5 +1,4 @@
-# Events Explorer — Next.js Assessment
-
+# Events Explorer — GFind Your next Event
 A dynamic event listing app built using **Next.js (pages router)**, **TypeScript**, and **Tailwind CSS**.  
 The app allows users to:
 - Search events by name, location, or description
