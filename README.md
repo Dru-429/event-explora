@@ -1,46 +1,43 @@
-## Event Explora — Find Your Next Big Event
 
-A dynamic event listing app built using **Next.js (Pages Router)**, **TypeScript**, and **Tailwind CSS**.
+# Event Explora
 
-🌐 **Live link:** [https://event-explora.vercel.app/](https://event-explora.vercel.app/)
+*A modern event listing application built with Next.js (Pages Router), TypeScript, and Tailwind CSS.*
 
-The app allows users to:
-
-* 🔍 Search events by name, location, or description
-* 📍 Filter by location
-* 📅 Sort events by date
-* 🚀 Navigate to dynamic event detail pages via `[id].tsx`
-* 🌟 SEO optimized meta tags per event
-* 💻 Fully responsive UI with custom theme colors
+**Live Demo:** [https://event-explora.vercel.app/](https://event-explora.vercel.app/)
 
 ---
 
-## 📑 Table of Contents
+## Overview
 
-| Section                                         | Location |
-| ----------------------------------------------- | -------- |
-| [Approach](#approach)                           | Below    |
-| [Folder Structure](#folder-structure)           | Below    |
-| [How to Run](#how-to-run)                       | Below    |
-| [Planned Features](#planned-features)           | Below    |
-| [Optional Improvements](#optional-improvements) | Below    |
-| [Evaluation Criteria](#evaluation-criteria)     | Below    |
+Event Explora allows users to:
+
+- Search events by name, location, or description
+- Filter events by location
+- Sort events by date
+- View dynamic event detail pages (`[id].tsx`)
+- Benefit from SEO-optimized meta tags per event
+- Enjoy a fully responsive UI with custom theme colors
 
 ---
 
-## 🚀 Approach
+## Table of Contents
 
-1️⃣ **Research:**
-I began by exploring existing event platforms such as:
+- [Event Explora](#event-explora)
+  - [Overview](#overview)
+  - [Table of Contents](#table-of-contents)
+  - [Approach](#approach)
+  - [Folder Structure](#folder-structure)
+  - [Planned Features](#planned-features)
 
-* Reskill event pages
-* Meetup.com
-* Devfolio
+---
 
-This helped gather inspiration for UI structure, layout, and key features.
+## Approach
 
-2️⃣ **Theme selection:**
-I chose a vibrant light color palette that suits tech communities and added it to `globals.css` via CSS variables:
+**Research:**
+Explored popular event platforms (Reskill, Meetup.com, Devfolio) to identify best practices for UI, layout, and features.
+
+**Theme Selection:**
+Chose a vibrant, accessible color palette tailored for tech communities. Theme variables are defined in `globals.css`:
 
 ```css
 @theme {
@@ -56,30 +53,35 @@ I chose a vibrant light color palette that suits tech communities and added it t
   --color-input: #c8ccce;
 }
 ```
-3️⃣ Development phases:
 
-Phase 1: Setup Next.js, Tailwind, and custom theme
+**Development Phases:**
 
-Phase 2: Build the home page with search, filter, and sort features
+1. Setup Next.js, Tailwind CSS, and custom theme
+2. Build the home page with search, filter, and sort features
+3. Implement dynamic event detail route (`[id].tsx`)
+4. Add SEO meta tags per event
+5. Refine responsiveness and deploy to Vercel
 
-Phase 3: Implement dynamic route [id].tsx for event details
+---
 
-Phase 4: Add SEO meta tags per event
+## Folder Structure
 
-Phase 5: Refine responsiveness and deploy to Vercel
+![Folder Structure](https://github.com/user-attachments/assets/80d2b543-9ca6-4049-aff0-030b6b6c2c96)
 
-I kept a written plan of tasks and features to stay organized through each phase.
+---
 
-🗂 Folder Structure
-![image](https://github.com/user-attachments/assets/80d2b543-9ca6-4049-aff0-030b6b6c2c96)
+## Planned Features
 
-✨ Planned Features
-🌙 Dark mode: Theme toggler for dev community
+**Dark mode**  
+Add a theme toggler so users can switch between light and dark themes.
 
-🗺 Map preview on event detail page
+**Map preview**  
+Embed a map (e.g., Google Maps) on the event detail page to visually show the event location.
 
-👀 View counter for event visits
+**View counter**  
+Display how many people have opened or viewed a particular event page.
 
-📝 Register form for events
+**Register form**  
+Include a “Register Now” form on the event detail page so users can sign up for the event directly from the app.
 
 
