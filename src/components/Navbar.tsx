@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Navbar() {
   return (
@@ -8,14 +9,15 @@ export default function Navbar() {
         href="/"
         className="font-bold text-2xl text-primary hover:text-primary/80 transition-colors flex items-center gap-2"
       >
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+        <span className="w-8 h-8">
+          <Image
+            src="/logo.png"
+            alt="Event Explora Logo"
+            width={32}
+            height={32}
+            className="object-cover"
           />
-        </svg>
+        </span>
         Event Explora
       </Link>
 
