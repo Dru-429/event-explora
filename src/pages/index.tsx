@@ -4,7 +4,6 @@ import { useState, useMemo } from "react"
 import events from "../data/events.json"
 import EventCard from "@/components/EventCard"
 import CustomDropdown from "@/components/CustomDropdown"
-import Arrow from "@/icons/Arrow"
 import SearchLens from "@/icons/SearchLens"
 
 type SortOption = "date-asc" | "date-desc" | "name-asc" | "name-desc"
@@ -126,7 +125,9 @@ export default function Homepage() {
                       className="mr-2 p-2 bg-foreground text-background rounded-full hover:bg-foreground/80 transition-colors"
                       aria-label="Clear search"
                     >
-                      <Arrow />
+                      <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
                     </button>
                   )}
                   <button
@@ -134,7 +135,9 @@ export default function Homepage() {
                     className="mr-2 p-2 bg-foreground text-background rounded-full hover:bg-foreground/80 transition-colors"
                     aria-label="Search"
                   >
-                    <Arrow />
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
                   </button>
                 </div>
               </form>
