@@ -20,7 +20,7 @@ export default function EventPage({ event }: EventPageProps) {
 
       <Navbar />
 
-      <section className="relative">
+      <section className="relative bg-background text-foreground">
         <div className="relative h-64 md:h-96 overflow-hidden">
           <Image
             src={event.image}
@@ -28,7 +28,7 @@ export default function EventPage({ event }: EventPageProps) {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center text-white px-4">
+          <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center text-background px-4">
             <p className="text-sm">{new Date(event.date).toLocaleDateString()}</p>
             <h1 className="text-4xl md:text-5xl font-bold">{event.name}</h1>
             <div className="flex gap-4 mt-2 text-sm md:text-base">
@@ -39,13 +39,13 @@ export default function EventPage({ event }: EventPageProps) {
         </div>
       </section>
 
-      <main className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <main className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 ">
         <div className="md:col-span-2">
           <h2 className="text-2xl font-bold mb-4">About</h2>
           <p className="text-foreground/80">{event.description}</p>
         </div>
 
-        <aside className="border rounded-lg shadow p-4 space-y-2">
+        <aside className="border border-border rounded-lg shadow p-4 space-y-2 bg-background/50">
           <Image
             src={event.image}
             alt={event.name}
@@ -53,10 +53,10 @@ export default function EventPage({ event }: EventPageProps) {
             height={200}
             className="rounded"
           />
-          <h3 className="font-semibold">{event.name}</h3>
-          <p className="text-sm">📅 Date: {new Date(event.date).toLocaleDateString()}</p>
-          <p className="text-sm">📍 Location: {event.location}</p>
-          <p className="text-sm">📅 Days: 1 Day</p>
+          <h3 className="font-semibold text-foreground">{event.name}</h3>
+          <p className="text-sm text-muted-foreground">📅 {new Date(event.date).toLocaleDateString()}</p>
+          <p className="text-sm text-muted-foreground">📍 {event.location}</p>
+          <p className="text-sm text-muted-foreground">📅 1 Day</p>
         </aside>
       </main>
 

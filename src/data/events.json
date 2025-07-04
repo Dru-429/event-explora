@@ -24,14 +24,6 @@
     "image": "/events/web3.png"
   },
   {
-    "id": "ssoc-retreat",
-    "name": "SSOC Developer Retreat",
-    "date": "2025-07-20",
-    "location": "Goa Beach Resort",
-    "description": "An inspiring retreat focused on open-source collaboration, community building, and tech talks by leading contributors.",
-    "image": "/events/SSOC.png"
-  },
-  {
     "id": "startup-meetup",
     "name": "Startup Meetup",
     "date": "2025-08-05",
