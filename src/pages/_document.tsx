@@ -13,7 +13,7 @@ export default function Document() {
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
 
-        <meta property="og:url" content="https://youreventsite.com" />
+        <meta property="og:url" content="https://event-explora.vercel.app/" />
       </Head>
       <body className="antialiased bg-background text-foreground">
         <Main />
